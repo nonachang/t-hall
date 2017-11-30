@@ -1,15 +1,53 @@
 <?php
+//子テーマでslick.js読み込み
+function habakiri_child_theme_setup() {
+	class Habakiri extends Habakiri_Base_Functions {
+
+		public function wp_enqueue_scripts() {
+			parent::wp_enqueue_scripts();
+			
+			wp_enqueue_script(
+				'slick.min',
+				get_stylesheet_directory_uri() . '/js/slick/slick.min.js',
+				array( 'slick' ),
+				null,
+				true
+			);
+		}
+	}
+}
+add_action( 'after_setup_theme', 'habakiri_child_theme_setup' );
 
 //絵文字無効化
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 
-//フッター情報
-function tetto_footer(){
+//フッター前情報
+function tetto_before_footer(){
+	get_template_part('modules/footer-contents');
+}
+add_action( 'habakiri_before_footer_content', 'tetto_before_footer' );
+
+
+//フッターコピーライト
+function tetto_after_footer(){
 	get_template_part('modules/footer-copyright');
 }
-add_action( 'habakiri_before_footer_content', 'tetto_footer' );
+add_action( 'habakiri_after_footer_content', 'tetto_after_footer' );
+
+
+//wp_footerにpickupのscript追加
+function add_wp_footer (){      
+ 	 echo "<script>
+	 	jQuery( function( $ ) {
+		 $('.pickup').slick({
+		 arrows: false,
+		 dots: true
+		 });});
+		 </script>";
+}
+add_action ('wp_footer','add_wp_footer',1);
 
 //アイキャッチ画像の定義と切り抜き
 add_action( 'after_setup_theme', 'baw_theme_setup' );
@@ -74,6 +112,7 @@ function tetto_page_entry_meta( $entry_meta ){
 }
 add_filter( 'habakiri_entry_meta', 'tetto_page_entry_meta' );
 
+//右サイドバーコンテンツ
 function tetto_after_sidebar_widget_area(){
 		get_template_part('modules/after-sidebar-content');
 }
