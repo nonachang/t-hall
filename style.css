@@ -1,0 +1,138 @@
+/*
+Theme Name: habakiri-child
+Template: habakiri
+*/
+
+@import url("css/hover-min.css");
+
+
+/*フォントセットアップ*/
+body {
+    font-family: "Roboto", "Droid Sans", "游ゴシック", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", sans-serif;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+/*GNBメニュー*/
+
+.header{
+	transition: all 500ms 0s ease;
+}
+
+.header--transparency{
+	transition: all 500ms 0s ease;
+}
+
+.header--transparency:hover{
+	background-color: #1d212926  !important;
+}
+
+.header--transparency.header--fixed .responsive-nav .menu>.menu-item>a {
+	color:#fff !important;	
+	transition: all 300ms 0s ease;
+}
+
+.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a {
+	color:#000 !important;	
+	transition: all 300ms 0s ease;
+	padding: 25px 35px;
+}
+
+
+.site-branding {
+	padding: 0;
+}
+
+.site-branding__heading{
+	transition: all 300ms 0s ease;
+}
+
+.header--transparency.header--fixed img{
+	transition: all 800ms 0s ease;
+}
+
+.header--transparency.header--fixed h1{
+	content:"";
+	background-image:url("http://lifedev.jp/tetto/wp-content/uploads/2017/11/tetto-logo2.png");
+	background-repeat: no-repeat;
+	transition: all 300ms 0s ease;
+}
+
+
+.header--transparency.header--fixed--is_scrolled h1{
+	content:"";
+	background-image:url("http://lifedev.jp/tetto/wp-content/uploads/2017/11/tetto-logo.png");
+	background-repeat: no-repeat;
+	transition: all 300ms 0s ease;
+}
+
+.hvr-underline-reveal:before {
+	content: "" !important;
+	display: initial !important;
+	background: RGB(255,86,17);
+}
+
+.responsive-nav > ul > li, .responsive-nav > * > ul > li {
+    margin: 0 5px;
+}
+
+.responsive-nav a {
+	transition: all 300ms 0s ease;
+}
+
+.responsive-nav a {
+	font-weight: bold;
+	transition: all 300ms 0s ease;
+}
+
+/*共通見出し*/
+h1{
+	font-size: 20px;
+	margin:0;
+}
+
+h1 small::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+h2{
+	
+}
+
+h3{
+	
+}
+
+.border-heading{
+	border-left:5px solid;
+	margin-bottom:20px;
+	padding: 8px 15px;
+}
+
+
+/*トップページ*/
+/*一覧リンク*/
+.panel {
+	border:1px solid #111;
+	padding: 10px 0;
+	text-align:center;
+	border-radius:0;
+}
+
+.panel:after{
+	content:" \f105";
+	font-family:FontAwesome;
+}
+
+/*コンテンツ*/
+#top_event .topcontents, #top_news .topcontents{
+	padding-left:0;
+}
+
+#fb_page_plugin_area{
+	width:100%;
+}
+
+
+
